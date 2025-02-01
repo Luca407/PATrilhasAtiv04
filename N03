@@ -1,43 +1,52 @@
 using System;
 
 namespace Diploma
-
-class Program
 {
-    static void Main()
+    class Program
     {
-        Console.WriteLine("Qual sua idade? ");
-        int idade = Convert.ToInt32(Console.ReadLine());
-
-        if (idade < 18)
+        static void Main()
         {
-            Console.WriteLine("Você não está qualificado.");
-            Console.ReadKey(true);
-            return; 
-        }
-        
+            Console.WriteLine("Qual sua idade? ");
+            string input = Console.ReadLine();
 
-        string resposta;
-        do
-        {
-            Console.WriteLine("Você possui um diploma de ensino superior? (sim/não) ");
-            resposta = Console.ReadLine().ToLower();
-
-            if (resposta != "sim" && resposta != "não")
+            // Verifica se a entrada é um número válido
+            if (!int.TryParse(input, out int idade))
             {
-                Console.WriteLine("Resposta inválida. Digite apenas 'sim' ou 'não'.");
+                Console.WriteLine("Entrada inválida. Por favor, insira um número válido.");
+                Console.ReadKey(true);
+                return;
             }
 
-        } while (resposta != "sim" && resposta != "não");
+            if (idade < 18)
+            {
+                Console.WriteLine("Você não está qualificado.");
+                Console.ReadKey(true);
+                return;
+            }
 
-        if (resposta == "sim")
-        {
-            Console.WriteLine("Parabéns, você está qualificado para a vaga!");
+            string resposta;
+            do
+            {
+                Console.WriteLine("Você possui um diploma de ensino superior? (sim/não) ");
+                resposta = Console.ReadLine()?.Trim().ToLower(); // Evita exceções se a entrada for nula
+
+                if (resposta != "sim" && resposta != "não")
+                {
+                    Console.WriteLine("Resposta inválida. Digite apenas 'sim' ou 'não'.");
+                }
+
+            } while (resposta != "sim" && resposta != "não");
+
+            if (resposta == "sim")
+            {
+                Console.WriteLine("Parabéns, você está qualificado para a vaga!");
+            }
+            else
+            {
+                Console.WriteLine("Você não está qualificado.");
+            }
+
+            Console.ReadKey(true);
         }
-        else
-        {
-            Console.WriteLine("Você não está qualificado.");
-        }
-        Console.ReadKey(true);
     }
 }
