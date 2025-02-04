@@ -1,8 +1,5 @@
 using System;
 
-namespace AssinaturaStreaming 
-{
-
 	class Program
 	{
   	  static void Main()
@@ -46,4 +43,3 @@ namespace AssinaturaStreaming
        		 Console.ReadKey(true);
    		 }
 	}
-}
