@@ -1,7 +1,5 @@
 using System;
 
-namespace CarteiraDeMotorista
-{
 class Program
 {
     static void Main()
@@ -41,4 +39,4 @@ class Program
         Console.ReadKey(true);
     }
 }
-}
+
