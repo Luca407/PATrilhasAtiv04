@@ -1,7 +1,5 @@
 using System;
 
-namespace Diploma
-{
 class Program
 {
     static void Main()
@@ -41,4 +39,4 @@ class Program
         Console.ReadKey(true);
   	  }
 	}
-}
+
